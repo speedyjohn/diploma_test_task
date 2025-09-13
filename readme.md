@@ -1,2 +1,3 @@
 Current progress:
-First migration
+First migration is done
+Swagger is connected

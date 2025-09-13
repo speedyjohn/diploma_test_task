@@ -1,0 +1,48 @@
+package org.example.test_task.controller;
+
+import org.example.test_task.entity.Position;
+import org.example.test_task.service.PositionService;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.UUID;
+
+@RestController
+@RequestMapping("/api/positions")
+public class PositionController {
+
+    private final PositionService positionService;
+
+    public PositionController(PositionService positionService) {
+        this.positionService = positionService;
+    }
+
+    @PostMapping
+    public ResponseEntity<Position> createPosition(@RequestBody Position position) {
+        return ResponseEntity.ok(positionService.createPosition(position));
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Position>> getAllPositions() {
+        return ResponseEntity.ok(positionService.getAllPositions());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Position> getPositionById(@PathVariable UUID id) {
+        return positionService.getPositionById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Position> updatePosition(@PathVariable UUID id, @RequestBody Position updatedPosition) {
+        return ResponseEntity.ok(positionService.updatePosition(id, updatedPosition));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deletePosition(@PathVariable UUID id) {
+        positionService.deletePosition(id);
+        return ResponseEntity.noContent().build();
+    }
+}

@@ -28,10 +28,10 @@ public class Employee {
     @Column(nullable = false)
     private String fullName;
 
-    @Column(length = 12, nullable = false, unique = true)
+    @Column(length = 12, nullable = false, unique = true, columnDefinition = "bpchar(12)")
     private String iin;
 
-    @Column(length = 13, nullable = false, unique = true)
+    @Column(length = 13, nullable = false, unique = true, columnDefinition = "bpchar(13)")
     private String phone;
 
     @Column(nullable = false, unique = true)
