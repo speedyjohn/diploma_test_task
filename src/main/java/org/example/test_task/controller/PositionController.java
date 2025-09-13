@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/positions")
+@RequestMapping("/api/v1/positions")
 public class PositionController {
 
     private final PositionService positionService;
