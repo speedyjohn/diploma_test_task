@@ -17,7 +17,7 @@ public class PositionService {
         this.positionRepository = positionRepository;
     }
 
-    // Create
+    // Create one
     public Position createPosition(Position position) {
         return positionRepository.save(position);
     }

@@ -5,6 +5,7 @@ import org.example.test_task.repository.UserRepository;
 import org.springframework.security.core.userdetails.*;
 import org.springframework.stereotype.Service;
 
+// Just a small service for authentication
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 

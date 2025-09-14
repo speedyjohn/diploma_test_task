@@ -14,6 +14,7 @@ import org.example.test_task.entity.Position;
 
 import org.example.test_task.enums.*;
 
+// Employees table entity
 @Entity
 @Table(name = "employees")
 @Data

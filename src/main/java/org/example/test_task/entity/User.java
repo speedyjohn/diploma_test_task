@@ -5,6 +5,7 @@ import lombok.*;
 
 import java.util.UUID;
 
+// Users table entity
 @Entity
 @Data
 @NoArgsConstructor

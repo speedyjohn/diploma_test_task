@@ -18,7 +18,7 @@ public class EmployeeService {
         this.employeeRepository = employeeRepository;
     }
 
-    // Create
+    // Create one
     public Employee createEmployee(Employee employee) {
         return employeeRepository.save(employee);
     }

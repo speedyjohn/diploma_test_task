@@ -12,6 +12,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import java.io.IOException;
 import java.util.UUID;
 
+// JWT Filter
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 

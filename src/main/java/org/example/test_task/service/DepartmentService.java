@@ -17,7 +17,7 @@ public class DepartmentService {
         this.departmentRepository = departmentRepository;
     }
 
-    // Create
+    // Create one
     public Department createDepartment(Department department) {
         return departmentRepository.save(department);
     }

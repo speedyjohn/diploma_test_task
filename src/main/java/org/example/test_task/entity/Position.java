@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import java.util.UUID;
 
+// Positions table entity
 @Entity
 @Table(name = "positions")
 @Data

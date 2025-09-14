@@ -24,6 +24,8 @@ public class SecurityConfig {
         this.jwtAuthenticationFilter = jwtAuthenticationFilter;
     }
 
+    // Filter chain which is build to permit or deny access to some routes
+    // It's currently permit all requests, and access is managed in controllers, but it's just for developing stage
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         // It feels so unprotected, gonna change it later
@@ -36,6 +38,7 @@ public class SecurityConfig {
         return http.build();
     }
 
+    // Bcrypt encoder for users authorization
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();

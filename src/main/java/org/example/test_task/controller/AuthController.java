@@ -8,6 +8,7 @@ import org.springframework.security.authentication.*;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+// Auth controller which is working with 1 endpoint only and returns JWT
 @RestController
 @RequestMapping("/auth")
 public class AuthController {

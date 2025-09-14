@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.UUID;
 
+// CRUD controller
 @RestController
 @RequestMapping("/api/v1/employees")
 public class EmployeeController {
@@ -19,7 +20,7 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
 
-    // Create
+    // Create one
     @PreAuthorize("hasAnyRole('ADMIN', 'HR')")
     @PostMapping
     public ResponseEntity<Employee> createEmployee(@RequestBody Employee employee) {
@@ -42,14 +43,14 @@ public class EmployeeController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    // Update
+    // Update one
     @PreAuthorize("hasAnyRole('ADMIN', 'HR')")
     @PutMapping("/{id}")
     public ResponseEntity<Employee> updateEmployee(@PathVariable UUID id, @RequestBody Employee updatedEmployee) {
         return ResponseEntity.ok(employeeService.updateEmployee(id, updatedEmployee));
     }
 
-    // Delete
+    // Delete one
     @PreAuthorize("hasAnyRole('ADMIN', 'HR')")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteEmployee(@PathVariable UUID id) {

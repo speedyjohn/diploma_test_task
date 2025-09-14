@@ -2,7 +2,7 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/hr
     username: postgres
-    password: root
+    password: password
   jpa:
     hibernate:
       ddl-auto: validate
@@ -13,6 +13,8 @@ spring:
   flyway:
     enabled: true
     locations: classpath:db/migration
+  config:
+    import: optional:classpath:application-local.yml
 
 
 server:
@@ -20,5 +22,5 @@ server:
 
 app:
   jwt:
-    secret: MyUltraSecretKeyThatIsAtLeast123456789CharsLong1234567890987654321DamnHowMuchCharsDoINeed
+    secret: key
     expiration-ms: 86400000
