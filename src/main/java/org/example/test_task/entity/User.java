@@ -1,9 +1,7 @@
 package org.example.test_task.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.UUID;
 
@@ -20,4 +18,8 @@ public class User {
     private String username;
     private String password;
     private String role;
+
+    @OneToOne
+    @JoinColumn(name = "employee_id", nullable = true)
+    private Employee employee;
 }

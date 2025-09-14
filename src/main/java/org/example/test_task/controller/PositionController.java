@@ -3,6 +3,7 @@ package org.example.test_task.controller;
 import org.example.test_task.entity.Position;
 import org.example.test_task.service.PositionService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,16 +19,19 @@ public class PositionController {
         this.positionService = positionService;
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN', 'HR')")
     @PostMapping
     public ResponseEntity<Position> createPosition(@RequestBody Position position) {
         return ResponseEntity.ok(positionService.createPosition(position));
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN', 'HR')")
     @GetMapping
     public ResponseEntity<List<Position>> getAllPositions() {
         return ResponseEntity.ok(positionService.getAllPositions());
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN', 'HR')")
     @GetMapping("/{id}")
     public ResponseEntity<Position> getPositionById(@PathVariable UUID id) {
         return positionService.getPositionById(id)
@@ -35,11 +39,13 @@ public class PositionController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN', 'HR')")
     @PutMapping("/{id}")
     public ResponseEntity<Position> updatePosition(@PathVariable UUID id, @RequestBody Position updatedPosition) {
         return ResponseEntity.ok(positionService.updatePosition(id, updatedPosition));
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN', 'HR')")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletePosition(@PathVariable UUID id) {
         positionService.deletePosition(id);
